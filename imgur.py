@@ -67,7 +67,7 @@ class Imgur:
             re = client.upload_from_path(filename, config=config, anon=False)
             if re is not None:
                 try:
-                    response = "OK.. I guess"
+                    response = "OK"
                     os.remove(filename)
                 except OSError as e:
                     response = "An error occured."
