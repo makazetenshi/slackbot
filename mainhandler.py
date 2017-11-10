@@ -3,6 +3,7 @@ import os
 import time
 from os.path import join, dirname
 from dotenv import load_dotenv
+from websocket import WebSocketConnectionClosedException
 import command_handler
 from slackclient import SlackClient
 class MainHandler(object):
@@ -40,10 +41,15 @@ class MainHandler(object):
                         handler = command_handler.CommandHandler()
                         handler.get_integration(command, channel, slack_client, args)
                         time.sleep(READ_WEBSOCKET_DELAY)
-                except Exception as e:
+                except WebSocketConnectionClosedException as e:
                     logging.exception(e)
                     time.sleep(READ_WEBSOCKET_DELAY)
                     slack_client.rtm_connect()
+                except Exception as e:
+                    if (type(e).__name__ != 'TypeError'):
+                        logging.exception(e)
+                    time.sleep(READ_WEBSOCKET_DELAY)
+
         else:
             logging.debug("Connection Failed.")
 
