@@ -19,15 +19,12 @@ class MainHandler(object):
         output_list = slack_output
         if output_list and len(output_list) > 0:
             for output in output_list:
-                if output and 'text' in output and (output['text'].encode('utf8')).startswith('.') and 'subtype' not in output:
-                    return output['text'][1:], \
+                if output['type'] == 'message' and 'files' not in output:
+                    if 'text' in output and (len(output['text']) > 0) and output['text'][0] == '.':
+                        return output['text'][1:], \
                             output['channel'], None
-                if output and 'file' in output and 'comment' in output:
-                    return output['comment']['comment'][1:], \
-                            output['channel'], output['file']['url_private']
 
     def main(self):
-        date_string = "%Y-%m-%d %H:%M:%S"
         READ_WEBSOCKET_DELAY = 1
         global slack_client
         slack_client = SlackClient(SLACK_TOKEN)
@@ -36,7 +33,6 @@ class MainHandler(object):
                 try:
                     command, channel, args = self.parse_output(slack_client.rtm_read())
                     if command and channel:
-                        command = command.encode("utf8")
                         handler = command_handler.CommandHandler()
                         handler.get_integration(command, channel, slack_client, args)
                         time.sleep(READ_WEBSOCKET_DELAY)
