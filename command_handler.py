@@ -18,7 +18,6 @@ class CommandHandler(object):
         dispatcher.MessageDispatcher().dispatch_message(channel, message, slack_client)
 
     def get_integration(self, command, channel, slack_client, args):
-        date_string = "%Y-%m-%d %H:%M:%S"
         with open("integrations.yaml") as stream:
             try:
                 parsed_command = command.split()[0]
