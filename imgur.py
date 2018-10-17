@@ -1,13 +1,15 @@
+import logging
+import os
+from io import open as iopen
+from os.path import join, dirname
+from random import randint
+
+import requests
+from dotenv import load_dotenv
 from imgurpython import ImgurClient
 from imgurpython.helpers.error import ImgurClientError
-from random import randint
-from os.path import join, dirname
-from dotenv import load_dotenv
-from io import open as iopen
-import requests
-import os
-import re # - Regex
-import logging
+
+
 class Imgur:
     FORMAT = "%(asctime)-15s %(message)s"
     logging.basicConfig(filename='swapbot.log', level=logging.DEBUG, format=FORMAT)
