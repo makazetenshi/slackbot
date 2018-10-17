@@ -4,8 +4,6 @@ Written in Python 3.5 (was ported from 2.7)
 
 ## Getting Started
 
-Works with Python
-
 First off you're going to need to create a `.env` file.
 
 The bot reads off of this file whenever any form of token is needed, which is useful for not only slack but also for any integration you implement later on.
