@@ -4,7 +4,7 @@ from io import open
 import message_dispatcher as dispatcher
 class CommandHandler(object):
     FORMAT = "%(asctime)-15s %(message)s"
-    logging.basicConfig(filename='swapbot.log', level=logging.DEBUG, format=FORMAT)
+    logging.basicConfig(filename='bot.log', level=logging.DEBUG, format=FORMAT)
 
     @staticmethod
     def handle(integration, command, channel, slack_client, args):
