@@ -31,3 +31,22 @@ Currently needed:
     slackclient==1.3.0
     urllib3==1.23
     websocket-client==0.53.0
+    
+#### Integrations
+
+The idea behind the bot was that you should be able to add integrations easily so in this section we will look into how you add an integration to the bot.
+
+The format of the integrations defined in `integrations.yaml` is:
+    
+    command: {module: filename, class: classname}
+
+Where command is you would type (prefixed with a dot, eg `.img`) as a command, and filename and classname are self-explanatory.
+
+The only requirement of an integration is that it has the following method: 
+
+    def parse_command(self, command, channel, args):
+    
+with command being the command parsed, channel being the origin(and destination) of any output and args being any arguments passed along, in case your command has any options.
+
+
+For an idea of how integrations work, have a look at `urban.py` and `imgur.py`.
