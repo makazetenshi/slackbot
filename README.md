@@ -1,3 +1,7 @@
+# Slackbot
+
+Written in Python 3.5 (was ported from 2.7)
+
 ## Getting Started
 
 First off you're going to need to create a `.env` file.
@@ -50,3 +54,5 @@ with command being the command parsed, channel being the origin(and destination)
 
 
 For an idea of how integrations work, have a look at `urban.py` and `imgur.py`.
+
+_Currently loading of files via absolute filepath is not supported, but could be added using importlib.util_

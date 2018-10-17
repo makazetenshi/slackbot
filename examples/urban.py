@@ -10,6 +10,6 @@ class Urban:
     def perform_lookup(query):
         r = requests.get("http://api.urbandictionary.com/v0/define?term=" + query[0])
         content = r.json()
-        if (content['result_type'] == 'no_results'):
+        if len(content['list']) == 0:
             return 'No results found matching: ' + query[0]
         return content['list'][0]['definition']

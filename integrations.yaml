@@ -1,3 +1,3 @@
 # YAML
-img: {module: imgur, class: Imgur}
-def: {module: urban, class: Urban}
+#img: {module: imgur, class: Imgur}
+#def: {module: urban, class: Urban}
