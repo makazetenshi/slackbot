@@ -1,4 +1,5 @@
-###Getting Started
+## Getting Started
+
 First off you're going to need to create a `.env` file.
 
 The bot reads off of this file whenever any form of token is needed, which is useful for not only slack but also for any integration you implement later on.
