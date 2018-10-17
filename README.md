@@ -13,3 +13,21 @@ This token should be defined in the `.env` file as:
 Running the bot is as simple as running `python mainhandler.py`.
 
 Or alternatively `nohup python mainhandler.py &` to avoid interrupting the bot on hangup.
+
+#### Dependencies
+
+Running `pip install -r requirements.txt` should install all needed dependencies.
+
+Currently needed:
+
+    certifi==2018.8.24
+    chardet==3.0.4
+    idna==2.7
+    imgurpython==1.1.7
+    python-dotenv==0.9.1
+    PyYAML==3.13
+    requests==2.19.1
+    six==1.11.0
+    slackclient==1.3.0
+    urllib3==1.23
+    websocket-client==0.53.0
