@@ -46,11 +46,11 @@ The format of the integrations defined in `integrations.yaml` is:
 
 Where command is you would type (prefixed with a dot, eg `.img`) as a command, and filename and classname are self-explanatory.
 
-The only requirement of an integration is that it has the following method: 
+The requirements of an integration is that it has the following method: 
 
     def parse_command(self, command, channel, args):
     
-with command being the command parsed, channel being the origin(and destination) of any output and args being any arguments passed along, in case your command has any options.
+with command being the command parsed, channel being the origin(and destination) of any output and args being any arguments passed along, in case your command has any options. An integration also needs to implement the `IntegrationInterface` which for now only contains the `parse_command` method, but more might come in the future. This was made to ensure that all required methods have been implemented.
 
 
 For an idea of how integrations work, have a look at `urban.py` and `imgur.py`.
