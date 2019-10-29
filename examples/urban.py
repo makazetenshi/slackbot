@@ -1,7 +1,8 @@
-import json
 import requests
-class Urban:
+from integration_interface import IntegrationInterface
 
+
+class Urban(IntegrationInterface):
     def parse_command(self, command, channel, args):
         parsed_command = command.split(' ', 1)
         return self.perform_lookup(parsed_command[1:])

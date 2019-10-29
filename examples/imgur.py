@@ -9,8 +9,10 @@ from dotenv import load_dotenv
 from imgurpython import ImgurClient
 from imgurpython.helpers.error import ImgurClientError
 
+from integration_interface import IntegrationInterface
 
-class Imgur:
+
+class Imgur(IntegrationInterface):
     FORMAT = "%(asctime)-15s %(message)s"
     logging.basicConfig(filename='swapbot.log', level=logging.DEBUG, format=FORMAT)
     global dotenv_path
